@@ -9,7 +9,7 @@ const ContentSection = ({ product, addProductToCart }) => {
   return (
     <PoductDetailCard
       image={image}
-      price={`${price} ${currencySymbol}`}
+      price={price ? `${price} ${currencySymbol}` : ""}
       brand={brand}
       model={model}
       name={name}

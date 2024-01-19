@@ -8,7 +8,9 @@ const ContentContainer = styled(BoxComp)`
   text-align: center;
 `;
 
-const CustomCardComp = styled(CardComp)`
+const CustomCardComp = styled(CardComp).withConfig({
+  shouldForwardProp: (prop) => prop !== "secondBg",
+})`
   background-color: ${(props) => (props.secondBg ? "#f1f1f1" : "#FFFFFF")};
 `;
 

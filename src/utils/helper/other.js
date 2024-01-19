@@ -91,3 +91,16 @@ export const sortProducts = (value, products) => {
 
   return sortedProducts;
 };
+
+//##########################
+
+export function isSkeletonActive(isSkeleton, children) {
+  if (!isSkeleton) {
+    return false;
+  } else {
+    const isFalsy = [null, undefined, "", {}, []].some((val) =>
+      Object.is(val, children)
+    );
+    return isFalsy;
+  }
+}

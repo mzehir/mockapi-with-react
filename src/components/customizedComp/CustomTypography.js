@@ -1,4 +1,6 @@
 import TypographyComp from "../Typography";
+import SkeletonComp from "../Skeleton";
+import { isSkeletonActive } from "../../utils/helper/other";
 
 export const StrongMinLineHeightTypography = (props) => {
   const { children, ...other } = props;
@@ -45,8 +47,11 @@ export const StrongPriceValueTypography = (props) => {
 };
 
 export const StrongXLargePriceTypography = (props) => {
-  const { children, ...other } = props;
-  return (
+  const { children, isSkeleton = true, ...other } = props;
+
+  return isSkeletonActive(isSkeleton, children) ? (
+    <SkeletonComp {...other} />
+  ) : (
     <TypographyComp
       gutterBottom
       sx={{ color: "#2A59FE", fontSize: "x-large" }}
@@ -58,8 +63,11 @@ export const StrongXLargePriceTypography = (props) => {
 };
 
 export const StrongXLargeTypography = (props) => {
-  const { children, ...other } = props;
-  return (
+  const { children, isSkeleton = true, ...other } = props;
+
+  return isSkeletonActive(isSkeleton, children) ? (
+    <SkeletonComp {...other} />
+  ) : (
     <TypographyComp
       {...other}
       sx={{ color: "#000000", fontSize: "x-large" }}

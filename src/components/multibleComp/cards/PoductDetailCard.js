@@ -3,7 +3,8 @@ import styled from "styled-components";
 import BoxComp from "../../Box";
 import GridComp from "../../Grid";
 import { AddToCartButton } from "../../customizedComp/CustomButtons";
-import { CardComp, CardContentComp, CardMediaComp } from "../../Card";
+import CardMediaSkeleton from "../../customizedComp/CustomCardMedias";
+import { CardComp, CardContentComp } from "../../Card";
 import {
   StrongXLargePriceTypography,
   StrongXLargeTypography,
@@ -13,7 +14,8 @@ const MuiCardComp = styled(CardComp)`
   padding: 10px;
 `;
 
-const MuiCardMediaComp = styled(CardMediaComp)`
+const MuiCardMediaComp = styled(CardMediaSkeleton)`
+  background-color: #c4c4c4;
   height: 50vh;
 `;
 
@@ -37,18 +39,16 @@ export default function PoductDetailCard(props) {
   return (
     <MuiCardComp>
       <GridComp container spacing={1}>
-        {image && (
-          <GridComp item xs={12} md={12} lg={6} padding="50px">
-            <MuiCardMediaComp image={image ? image : ""} title={brand} />
-          </GridComp>
-        )}
+        <GridComp item xs={12} md={12} lg={6} padding="50px">
+          <MuiCardMediaComp image={image} title={brand} />
+        </GridComp>
 
         <GridComp item xs={12} md={12} lg={6} padding="50px" marginTop="25px">
           <MuiCardContentComp>
             <ContentContainer>
               <BoxComp>
                 <StrongXLargeTypography>
-                  {brand} - {model}
+                  {brand && model ? `${brand} - ${model}` : ""}
                 </StrongXLargeTypography>
                 <StrongXLargeTypography>{name}</StrongXLargeTypography>
 
@@ -59,10 +59,8 @@ export default function PoductDetailCard(props) {
 
               <BoxComp>
                 <AddToCartButton
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    buttonOnClick();
-                  }}
+                  onClick={() => buttonOnClick()}
+                  disabled={!price && !brand && !model}
                 />
 
                 <BoxComp sx={{ m: 10 }} />
