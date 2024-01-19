@@ -1,0 +1,57 @@
+{
+  "name": "mockapi-with-react",
+  "version": "0.1.0",
+  "description": "ReactJS & Material UI & MUI & Mockapi with react",
+  "private": true,
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "serve": "serve -s build -l 3013",
+    "eject": "craco eject",
+    "lint": "eslint src --ext .js,.jsx --fix"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "not IE 11"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "dependencies": {
+    "@craco/craco": "^7.1.0",
+    "@mui/icons-material": "5.2.4",
+    "@mui/lab": "5.0.0-alpha.60",
+    "@mui/material": "5.2.4",
+    "@mui/styled-engine-sc": "5.1.0",
+    "@mui/styles": "5.2.3",
+    "@mui/system": "5.2.4",
+    "@reduxjs/toolkit": "^1.9.7",
+    "axios": "0.24.0",
+    "date-fns": "2.27.0",
+    "deepmerge": "4.2.2",
+    "jss": "10.9.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-redux": "^8.1.3",
+    "react-router-dom": "6.2.1",
+    "react-scripts": "^5.0.1",
+    "styled-components": "5.3.3",
+    "web-vitals": "2.1.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "7.16.5",
+    "craco-alias": "3.0.1",
+    "eslint-config-prettier": "6.15.0",
+    "eslint-plugin-prettier": "3.4.1",
+    "prettier": "2.5.1"
+  },
+  "resolutions": {
+    "jss": "10.9.0"
+  }
+}
