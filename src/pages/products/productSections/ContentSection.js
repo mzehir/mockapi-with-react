@@ -5,6 +5,7 @@ import BoxComp from "../../../components/Box";
 import GridComp from "../../../components/Grid";
 import PaginationComp from "../../../components/Pagination";
 import ProductListCard from "../../../components/multibleComp/cards/ProductListCard";
+import NoDataToShow from "../../../components/multibleComp/cards/NoDataToShow";
 
 const ProductListingContainer = styled(BoxComp)`
   display: flex;
@@ -55,25 +56,38 @@ const ContentSection = ({ products, goToProductDetail, addProductToCart }) => {
 
   return (
     <ProductListingContainer>
-      <GridComp container spacing={4}>
-        {currentProducts.map((product, index) => (
-          <GridComp key={index.toString()} item xs={12} md={6} lg={4} xl={3}>
-            <Product
-              product={product}
-              goToProductDetail={goToProductDetail}
-              addProductToCart={addProductToCart}
-            />
+      {currentProducts.length === 0 ? (
+        <NoDataToShow text="No products found to show" />
+      ) : (
+        <>
+          <GridComp container spacing={4}>
+            {currentProducts.map((product, index) => (
+              <GridComp
+                key={index.toString()}
+                item
+                xs={12}
+                md={6}
+                lg={4}
+                xl={3}
+              >
+                <Product
+                  product={product}
+                  goToProductDetail={goToProductDetail}
+                  addProductToCart={addProductToCart}
+                />
+              </GridComp>
+            ))}
           </GridComp>
-        ))}
-      </GridComp>
 
-      <PaginationContainer>
-        <PaginationComp
-          count={Math.ceil(filteredProducts.length / productsPerPage)}
-          page={currentPage}
-          onChange={handlePageChange}
-        />
-      </PaginationContainer>
+          <PaginationContainer>
+            <PaginationComp
+              count={Math.ceil(filteredProducts.length / productsPerPage)}
+              page={currentPage}
+              onChange={handlePageChange}
+            />
+          </PaginationContainer>
+        </>
+      )}
     </ProductListingContainer>
   );
 };
