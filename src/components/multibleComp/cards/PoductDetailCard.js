@@ -39,11 +39,24 @@ export default function PoductDetailCard(props) {
   return (
     <MuiCardComp>
       <GridComp container spacing={1}>
-        <GridComp item xs={12} md={12} lg={6} padding="50px">
+        <GridComp
+          item
+          xs={12}
+          md={12}
+          lg={6}
+          sx={{ padding: { xs: 0, lg: "50px" } }}
+        >
           <MuiCardMediaComp image={image} title={brand} />
         </GridComp>
 
-        <GridComp item xs={12} md={12} lg={6} padding="50px" marginTop="25px">
+        <GridComp
+          item
+          xs={12}
+          md={12}
+          lg={6}
+          marginTop="25px"
+          sx={{ padding: { xs: 0, lg: "50px" } }}
+        >
           <MuiCardContentComp>
             <ContentContainer>
               <BoxComp>

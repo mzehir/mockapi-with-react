@@ -8,9 +8,9 @@ const Search = styled("div", {
 })((props) => ({
   position: "relative",
   borderRadius: props.theme.shape.borderRadius,
-  backgroundColor: alpha(props.theme.palette.common.white, 0.15),
+  backgroundColor: alpha(props.theme.palette.common.black, 0.15),
   "&:hover": {
-    backgroundColor: alpha(props.theme.palette.common.white, 0.25),
+    backgroundColor: alpha(props.theme.palette.common.black, 0.25),
   },
   marginLeft: 0,
   width: `${props.searchWidthInPercent}%`,

@@ -16,6 +16,7 @@ import {
   uniqueValuesByProperty,
 } from "../../utils/helper/other";
 import { customBreakpoints } from "../../theme/breakpoints";
+import SortingAndFilteringMobileSection from "./productSections/SortingAndFilteringMobile/SortingAndFilteringMobileSection";
 
 const tabletBreakpoint = customBreakpoints.tabletBreakpointMax;
 const mobileBreakpoint = customBreakpoints.mobileBreakpointMax;
@@ -135,24 +136,35 @@ const ProductsPage = () => {
 
   return (
     <GridComp container spacing={2} sx={{ height: "100%" }}>
-      <GridComp
-        item
-        xs={windowWidth <= mobileBreakpoint ? 12 : 4}
-        sm={4}
-        md={2}
-        lg={2}
-        xl={2}
-      >
-        <SortingAndFilteringSection
+      {windowWidth <= mobileBreakpoint ? (
+        <SortingAndFilteringMobileSection
           sortByValue={sortByValue}
           sortByOnChange={sortByOnChange}
           brandItems={brandItems}
           brandByOnChange={brandByOnChange}
           modelItems={modelItems}
           modelByOnChange={modelByOnChange}
-          isFixed={windowWidth > mobileBreakpoint}
         />
-      </GridComp>
+      ) : (
+        <GridComp
+          item
+          xs={windowWidth <= mobileBreakpoint ? 12 : 4}
+          sm={4}
+          md={2}
+          lg={2}
+          xl={2}
+        >
+          <SortingAndFilteringSection
+            sortByValue={sortByValue}
+            sortByOnChange={sortByOnChange}
+            brandItems={brandItems}
+            brandByOnChange={brandByOnChange}
+            modelItems={modelItems}
+            modelByOnChange={modelByOnChange}
+            isFixed={windowWidth > mobileBreakpoint}
+          />
+        </GridComp>
+      )}
 
       <GridComp
         item

@@ -12,7 +12,7 @@ const Container = styled(BoxComp)`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  gap: 30px;
+  gap: 10px;
 `;
 
 const ItemWrapper = styled(BoxComp)`
