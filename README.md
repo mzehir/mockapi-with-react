@@ -1,6 +1,6 @@
 # mockapi-with-react
 
-It is a shopping website starter project created using mockapi and react. 
+It is a representative shopping website built using React JS, Redux, Material UI and mockapi.
 
 <!-- Mockapi ve react kullanılarak oluşturulmuş bir alışveriş sitesi başlangıç projesidir. -->
 
