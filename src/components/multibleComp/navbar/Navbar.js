@@ -1,10 +1,13 @@
 import * as React from "react";
 import styled, { withTheme } from "styled-components";
-import { AppBar as MuiAppBar, Toolbar } from "@mui/material";
+import WindowResizeUseContext from "../../../hooks/WindowResizeUseContext";
+
 import GridComp from "../../Grid";
 import TitleSection from "./sections/TitleSection";
 import SearchBoxSection from "./sections/SearchBoxSection";
 import NavbarRightSection from "./sections/NavbarRightSection";
+import { customBreakpoints } from "../../../theme/breakpoints";
+import { AppBar as MuiAppBar, Toolbar } from "@mui/material";
 
 const AppBar = styled(MuiAppBar)`
   background: ${(props) => props.theme.header.background};
@@ -20,21 +23,27 @@ const CustomToolbar = styled(Toolbar).withConfig({
   min-height: 40px;
 `;
 
+const mobileBreakpoint = customBreakpoints.mobileBreakpointMax;
+
 const Navbar = ({ layoutHorizontalPaddingCoefficient }) => {
+  const { windowWidth } = WindowResizeUseContext();
+
   return (
     <React.Fragment>
       <AppBar position="sticky" elevation={0}>
         <CustomToolbar spacingCoefficient={layoutHorizontalPaddingCoefficient}>
           <GridComp container alignItems="center">
-            <GridComp item xs={2}>
+            <GridComp item xs={windowWidth <= mobileBreakpoint ? 5 : 2}>
               <TitleSection />
             </GridComp>
 
-            <GridComp item xs={8}>
-              <SearchBoxSection />
-            </GridComp>
+            {windowWidth > mobileBreakpoint && (
+              <GridComp item xs={8}>
+                <SearchBoxSection />
+              </GridComp>
+            )}
 
-            <GridComp item xs={2}>
+            <GridComp item xs={windowWidth <= mobileBreakpoint ? 7 : 2}>
               <NavbarRightSection />
             </GridComp>
           </GridComp>

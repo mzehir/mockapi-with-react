@@ -1,5 +1,8 @@
 import React from "react";
 import ButtonComp from "../Button";
+import IconButtonComp from "../IconButton";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 
 export const AddToCartButton = (props) => {
   const { ...other } = props;
@@ -9,6 +12,7 @@ export const AddToCartButton = (props) => {
       size="large"
       color="primary"
       variant="contained"
+      endIcon={<AddShoppingCartIcon />}
       fullWidth={true}
       {...other}
     >
@@ -25,10 +29,32 @@ export const CheckoutButton = (props) => {
       size="large"
       color={color}
       variant="contained"
+      endIcon={<ShoppingCartCheckoutIcon />}
       fullWidth={true}
       {...other}
+    ></ButtonComp>
+  );
+};
+
+export const CheckoutIconButton = (props) => {
+  const { style, disabled, onClick } = props;
+
+  return (
+    <IconButtonComp
+      style={{
+        backgroundColor: style.iconButtonStyle.backgroundColor,
+        cursor: disabled ? "default" : "pointer",
+      }}
+      disabled={disabled}
+      onClick={onClick}
     >
-      Checkout
-    </ButtonComp>
+      <ShoppingCartCheckoutIcon
+        style={{
+          color: disabled
+            ? style.iconStyle.disabledColor
+            : style.iconStyle.color,
+        }}
+      />
+    </IconButtonComp>
   );
 };

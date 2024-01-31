@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { generalAppConfigs } from "../../../../redux/actions/generalAppConfigAction";
 import ProductUseContext from "../../../../hooks/ProductUseContext";
+import WindowResizeUseContext from "../../../../hooks/WindowResizeUseContext";
 import TypographyComp from "../../../Typography";
 import BoxComp from "../../../Box";
+import { customBreakpoints } from "../../../../theme/breakpoints";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
@@ -22,19 +24,24 @@ const ItemWrapper = styled(BoxComp)`
   gap: 10px;
 `;
 
+const miniBreakpoint = customBreakpoints.miniBreakpointMax;
+
 const NavbarRightSection = () => {
+  const { windowWidth } = WindowResizeUseContext();
   const { totalAmount, currencySymbol } = ProductUseContext();
   const appConfigs = useSelector(generalAppConfigs);
 
   return (
     <Container>
-      <ItemWrapper>
-        <ShoppingBasketIcon />
-        <TypographyComp>
-          {totalAmount}
-          {currencySymbol}
-        </TypographyComp>
-      </ItemWrapper>
+      {windowWidth > miniBreakpoint && (
+        <ItemWrapper>
+          <ShoppingBasketIcon />
+          <TypographyComp>
+            {totalAmount}
+            {currencySymbol}
+          </TypographyComp>
+        </ItemWrapper>
+      )}
 
       <ItemWrapper>
         <PersonOutlineIcon />

@@ -6,7 +6,7 @@ import GridComp from "../../../components/Grid";
 import BoxComp from "../../../components/Box";
 import TypographyComp from "../../../components/Typography";
 import DividerComp from "../../../components/Divider";
-import { CheckoutButton } from "../../../components/customizedComp/CustomButtons";
+import { CheckoutIconButton } from "../../../components/customizedComp/CustomButtons";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { AppBar, Collapse, Toolbar } from "@mui/material";
@@ -77,8 +77,15 @@ const CartSectionTabletAndMobile = () => {
 
           <GridComp item xs={5}></GridComp>
 
-          <GridComp item xs={3}>
-            <CheckoutButton color="success" disabled={cart.length == 0} />
+          <GridComp item xs={3} display="flex" justifyContent="end">
+            <CheckoutIconButton
+              style={{
+                iconStyle: { color: "#fff", disabledColor: "#A6A6A6" },
+                iconButtonStyle: { backgroundColor: "#2E7D32" },
+              }}
+              disabled={cart.length == 0}
+              onClick={() => alert("...")}
+            />
           </GridComp>
         </GridComp>
       </Toolbar>

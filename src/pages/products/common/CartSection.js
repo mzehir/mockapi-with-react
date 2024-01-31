@@ -68,6 +68,7 @@ const Checkout = () => {
       <CheckoutCard
         totalAmount={`${totalAmount}${currencySymbol}`}
         checkoutButtonDisabled={cart.length == 0}
+        onClick={() => alert("...")}
       />
     </CardContainer>
   );

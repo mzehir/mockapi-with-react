@@ -13,4 +13,5 @@ export default breakpoints;
 export const customBreakpoints = {
   tabletBreakpointMax: 750,
   mobileBreakpointMax: 510,
+  miniBreakpointMax: 340,
 };

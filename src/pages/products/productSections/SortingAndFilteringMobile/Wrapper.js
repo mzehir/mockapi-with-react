@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import NameByCard from "../../../../components/multibleComp/cards/NameByCard";
 import DividerComp from "../../../../components/Divider";
 import ChipComp from "../../../../components/Chip";
 import FilterByCard from "../../../../components/multibleComp/cards/FilterByCard";
@@ -24,6 +25,13 @@ export default function Wrapper({
   return (
     <WrapperElement>
       <DividerComp>
+        <ChipComp label="Name" />
+      </DividerComp>
+      <NameByCard />
+
+      <br />
+
+      <DividerComp>
         <ChipComp label="Sort By" />
       </DividerComp>
       <SortByCard
@@ -32,10 +40,14 @@ export default function Wrapper({
         onChange={sortByOnChange}
       />
 
+      <br />
+
       <DividerComp>
         <ChipComp label="Brands" />
       </DividerComp>
       <FilterByCard items={brandItems} onChange={brandByOnChange} />
+
+      <br />
 
       <DividerComp>
         <ChipComp label="Model" />

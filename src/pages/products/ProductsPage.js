@@ -146,14 +146,7 @@ const ProductsPage = () => {
           modelByOnChange={modelByOnChange}
         />
       ) : (
-        <GridComp
-          item
-          xs={windowWidth <= mobileBreakpoint ? 12 : 4}
-          sm={4}
-          md={2}
-          lg={2}
-          xl={2}
-        >
+        <GridComp item xs={4} sm={4} md={2} lg={2} xl={2}>
           <SortingAndFilteringSection
             sortByValue={sortByValue}
             sortByOnChange={sortByOnChange}
